@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="la">
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Diabetes Predictor</title>
+  <link rel="stylesheet" href= "{{ url_for('static', filename='css/foundation.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/wireframe-theme.min.css') }}">
+  <script>document.createElement( "picture" );</script>
+  <script class="picturefill" async="async" src="{{ url_for('static', filename='js/picturefill.min.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo:400,500,b,i%7CRoboto">
+  <script>
+  {{ url_for('static', filename='js/foundation.min.js') }}
+  </script>
+</head>
+
+<body class="dark-body no-js"> 
+  
+  <div class="container book-offer" id="book">
+  <div class="container responsive-menu">
+    <div class="container title-bar" data-responsive-toggle="realeutatemenu"><span class="glyph font-icon-menu button" data-responsive-menu="nav-menu" data-toggle=""><i class="coffeecup-icons-menu7"></i></span>
+    </div>
+    <div class="container top-bar" id="realeutatemenu">
+      <div class="container top-bar-left">
+        <ul class="list-container menu dropdown">
+          <li class="list-item-container menuitem">
+            <a href="{{url_for('home')}}" >Home</a>
+          </li>
+          <li class="list-item-container menuitem">
+            <a class="link-text menu-link smooth-scroll" href="{{url_for('homepredict')}}">Predict</a>
+          </li>
+    
+        </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container discount-container">
+      <h2 class="offer-heading">Diabetes Predictor Report</h2>
+        <div class="container">
+        <h2>
+            <font color="#ffffff" face="Aclonica, cursive">Hi {{Name}},</font>
+          </h2><h4><font color="#ffffff" face="Aclonica, cursive">For the given Details,</h4><h5><br>Pregnancies: {{Pregnacies}} <br>
+          Glucose: {{Glucose}}<br>
+          BP: {{BP}}<br>
+          Skin Thickness: {{Skin}}<br>
+          Insulin: {{Insulin}}<br>
+          BMI: {{BMI}} <br>
+          Diabetes Pedigree Function: {{DPF}} <br>
+          Age: {{Age}}<br></h5>          
+          </font><br><br>
+          <h2>
+          <h4><font color="#ffffff" face="Aclonica, cursive">The Results are:</h4><br>
+          <h3>
+            <font color="#ffffff" face="Aclonica, cursive">KNN</font>
+          </h3><font color="#ffffff" face="Aclonica, cursive">{{KNN}}</font><br><br>
+          <h3>
+            <font color="#ffffff" face="Aclonica, cursive">LGBM</font>
+          </h3><font color="#ffffff" face="Aclonica, cursive">{{LGBM}}</font><br><br>
+          <h3>
+            <font color="#ffffff" face="Aclonica, cursive">KNN+LGBM</font>
+          </h3><font color="#ffffff" face="Aclonica, cursive">{{FINAL}}</font><br><br>
+          <h2>
+            <font color="#ffffff" face="Aclonica, cursive">Final Conclusion</font>
+          </h2><h3><font color="#ffffff" face="Aclonica, cursive">{{res}}</font><br><br></h3>
+        </div>
+    </div>
+          
+     
+      
+    </div>
+  </div>
+  
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src= "{{ url_for('static', filename='js/outofview.js') }}"></script>
+  <script src= "{{ url_for('static', filename='js/what-input.min.js') }}"></script>
+  <script src= "{{ url_for('static', filename='js/foundation.min.js') }}"></script>
+  <script>$(document).foundation();</script>
+<script>
+$(function() {
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+});
+</script>
+</body>
+
+</html>

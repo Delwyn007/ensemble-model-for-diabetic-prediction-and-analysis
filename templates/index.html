@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="la">
+<div id="something">
+{% if scroll %}
+<script>
+    document.location.hash = '#' + 'book';
+</script>
+{% endif %}
+</div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Diabetes Predictor</title>
+  <link rel="stylesheet" href= "{{ url_for('static', filename='css/foundation.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/wireframe-theme.min.css') }}">
+  <script>document.createElement( "picture" );</script>
+  <script class="picturefill" async="async" src="{{ url_for('static', filename='js/picturefill.min.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo:400,500,b,i%7CRoboto">
+  <script>
+  {{ url_for('static', filename='js/foundation.min.js') }}
+  </script>
+</head>
+
+<body class="dark-body no-js">
+  <div class="container responsive-menu">
+    <div class="container title-bar" data-responsive-toggle="realeutatemenu"><span class="glyph font-icon-menu button" data-responsive-menu="nav-menu" data-toggle=""><i class="coffeecup-icons-menu7"></i></span>
+    </div>
+    <div class="container top-bar" id="realeutatemenu">
+      <div class="container top-bar-left">
+        <ul class="list-container menu dropdown">
+          <li class="list-item-container menuitem">
+            <a class="link-text menu-link" href="#home">Home</a>
+          </li>
+          <li class="list-item-container menuitem">
+            <a class="link-text menu-link smooth-scroll" href="#book">Predict</a>
+          </li>
+          <li class="list-item-container menuitem">
+            <a class="link-text menu-link smooth-scroll" href="#news">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container header-region" id = "home">
+    <div class="container highlighted-heading">
+      <div class="rule">
+        <hr>
+      </div>
+      <h1 class="main-heading" id="book-heading">DIABETES PREDICTOR</h1>
+      <div class="rule">
+        <hr>
+      </div>
+      <p class="paragraph intro-highlighted-paragraph">Final Year Project App of Diabetes Predictor.</p>
+      <a class="link-button hero-button" href="#book">Let's Predict</a>
+    </div>
+  </div>
+  
+  <div class="container book-offer" id="book">
+    <div class="container discount-container">
+      <h2 class="offer-heading">Diabetes Predictor</h2>
+        
+<div class="container sd-two-cols">
+
+        <div class="container">
+          <h2>
+            <font color="#ffffff" face="Aclonica, cursive">Project Description</font><br>
+          </h2><h5><br><font color="#ffffff" face="Aclonica, cursive">Diabetes is a chronic disease and a major health issue among this hustle and stressful world. <br>So we have come up with a solution, where diabetes can be predicted with an ensemble model, with high accuracy.<br> We use KNN(k nearest neighbor) & LightGBM algorithms  to predict whether the individual is sufffering from Diabetes or not.</font>
+          </h5>
+        </div>
+        
+        <div class="container">
+        <form class="form-container" action = "{{ url_for('predict')}}" method="post">
+               <style>
+    .placeholder { color: red; }
+
+            input[type="email"]{ 
+                text-align: center;
+            }
+            input[type="text"] { 
+                text-align: center;
+            }
+            input[type="number"] { 
+                text-align: center;
+            }
+            body {
+                text-align:center;
+            }
+            h1 {
+                color:green;
+            }
+            
+        </style>
+        <input value="" name="name" type="text" placeholder = "Enter your name:" required="required"/>
+        <input list="gender" id="Gender" name="Gender" placeholder = "Gender" required="required"/>
+        <datalist id="gender">
+          <option value="Male">
+          <option value="Female">
+          <option value="Prefer Not to Say">
+        </datalist>
+        <br>
+        <br>
+          <input value="" name="pregnancies" type="number" placeholder = "Enter Number of pregnancies (Min-0 Max-99)" min = "0" max="99" required="required"/>
+          <input value="" name="Gluscose" type="number" placeholder = "Enter Gluscose Level (Min-50 Max-500)" min = "50" max="500" required="required"/>
+          <input value="" name="BP" type="number" placeholder = "Enter Blood Pressure (Min-50 Max-300)" min = "50" max="300" required="required"/>
+          <input value="" name="Skin" type="number" placeholder = "Enter Skin Thickness  (Min-2 Max-50)" min = "2" max="50" required="required"/>
+          <input value="" name="Insulin" type="number" placeholder = "Enter Insulin Level (Min-20 Max-2000)" min = "20" max="2000" required="required"/>
+          <input value="" name="BMI" type="number" placeholder = "Enter BMI (Min-10 Max-99)" min = "0" max="99" required="required"/>
+          <input value="" name="DPF" type="number" placeholder = "Enter Diabetes Pedigree Function (Min-0 Max-1)" min = "0" max="1" required="required"/>
+          <input value="" name="Age" type="number" placeholder = "Enter Age (Min-0 Max-99)" min = "0" max="99" required="required"/>
+          <style>
+                      *:focus {
+              outline: none;
+            }
+
+            .background {
+              background-color: gray;
+            }
+
+            .center {
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+
+            button {
+              background-color: #4CAF50;
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+              -webkit-transition-duration: 0.4s;
+              transition-duration: 0.4s;
+            }
+
+            .button:hover {
+              box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            }
+          </style>
+          <script>
+          function randomColor() {
+              var color = '#' + Math.random().toString(16).substr(2, 6);
+              document.getElementById("button").style.backgroundColor = color;
+
+              
+              console.log(color);
+            }
+                        $('.btn').on('click', function() {
+                var $this = $(this);
+              $this.button('loading');
+                setTimeout(function() {
+                  $this.button('reset');
+              }, 8000);
+            });
+
+          </script>
+          <style></style>
+          <script></script>
+                  <button id="button" onclick="randomColor()" class="button" type="submit" >  <span class="submit">Predict</span>
+          <span class="loading"><i class="fa fa-refresh"></i></span>
+          <span class="check"><i class="fa fa-check"></i></span>
+          </button>
+          </form>
+        </div>
+       
+      </div>
+          
+     
+      
+    </div>
+  </div>
+  
+  <div class="container blog" id="news">
+    <div class="container blog-card">
+      <div class="container card-inner"><div class="responsive-picture news-images"><picture><img alt="" src="{{ url_for('static', filename='images/social-media.jpg') }}"></picture></div>
+        <h2 class="news-heading">Dilip Hamilton V</h2>
+        <h3 class="blog-heading">Hi!. I am a web developer and a hyper-learner. Love to explore new technology as the saying goes <strong>The best excitement come from exploring unbounded charts</strong><br>
+<br><br>
+RRN: 170081601014<br>
+Dept: B.tech - IT <br>
+UNIVERSITY : B S Abdur Rahman Crescent Institute Of Science and Technology </h3>
+        <br>
+      </div>
+    </div>
+    <div class="container blog-card">
+      <div class="container card-inner"><div class="responsive-picture news-images"><picture><img alt="" src= "{{ url_for('static', filename='images/balazs-ketyi-1410252-unsplash.jpg') }}"></picture></div>
+        <h2 class="news-heading">Harsheni S</h2>
+        <h3 class="blog-heading">Hi I am a Software developer and keen to observe new algorithimic patterns and implement them. <strong>I am intrested in applied software devlopment </strong><br>
+<br>RRN: 170081601016<br>
+Dept: B.tech - IT <br>
+UNIVERSITY : B S Abdur Rahman Crescent Institute Of Science and Technology </h3>
+        <br>
+      </div>
+    </div>
+    <div class="hidden-column container"></div>
+  </div>
+
+    <div class="container quotes-section">
+    <div class="rule">
+      <hr>
+      
+    </div>
+    <h2 class="info-title quote-heading">Write Us A Feedback</h2>
+    <div class="container quote-cards-holder">
+      <a class="link-button hero-button" href = "{{url_for('feedback')}}">Write Review</a>      
+    </div>
+  </div>
+  
+  <div class="container footer">
+    <p class="paragraph footer-paragraph">Built By: Dilip Hamilton and Harsheni S<p>
+
+  </div>
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src= "{{ url_for('static', filename='js/outofview.js') }}"></script>
+  <script src= "{{ url_for('static', filename='js/what-input.min.js') }}"></script>
+  <script src= "{{ url_for('static', filename='js/foundation.min.js') }}"></script>
+  <script>$(document).foundation();</script>
+<script>
+$(function() {
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+});
+</script>
+</body>
+
+</html>
